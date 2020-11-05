@@ -1,6 +1,7 @@
 from shape import Shape
 from tkinter import Canvas
 
+
 class Rectangle(Shape):
 
     def __init__(self, x: int, y: int, width: int, height: int):
