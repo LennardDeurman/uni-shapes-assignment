@@ -1,7 +1,7 @@
 from shape import Shape
 import math
 from tkinter import Canvas
-from xml_builder import XmlElement
+from xml_builder import XmlElement, XmlElementProperty
 from svg_builder import SvgBuilder
 from graphics import Graphics
 
@@ -34,7 +34,9 @@ class StarGraphics(Graphics):
 
     def to_xml(self) -> XmlElement:
         svg_builder = SvgBuilder()
-         #TODO: Implement star shape!
+        polygon_element = XmlElement("polygon")
+        polygon_element.props.fields.append(XmlElementProperty(key="points", value="100,10 40,198 190,78 10,78 160,198"))
+        svg_builder.root.children.append(polygon_element)
         return svg_builder.root
 
 class Star(Shape):
