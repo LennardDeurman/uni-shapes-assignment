@@ -1,6 +1,6 @@
 from shape import Shape
 from tkinter import Canvas
-from xml_builder import XmlElement
+from xml_builder import XmlElement, XmlElementProperty
 from svg_builder import SvgBuilder
 from graphics import Graphics
 
@@ -16,7 +16,11 @@ class CircleGraphics(Graphics):
 
     def to_xml(self) -> XmlElement:
         svg_builder = SvgBuilder()
-        #TODO: Implement circle shape!
+        circle_element = XmlElement("circle")
+        circle_element.props.fields.append(XmlElementProperty(key="cx", value=self.circle_shape.x))
+        circle_element.props.fields.append(XmlElementProperty(key="cy", value=self.circle_shape.y))
+        circle_element.props.fields.append(XmlElementProperty(key="r", value=self.circle_shape.radius))
+        svg_builder.root.children.append(circle_element)
         return svg_builder.root
 
 
@@ -37,3 +41,6 @@ class Circle(Shape):
     
     def to_xml(self) -> XmlElement:
         return self.graphics.to_xml()
+
+    def name(self) -> str:
+        return "circle"

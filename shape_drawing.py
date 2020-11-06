@@ -1,8 +1,9 @@
-from tkinter import Tk, Canvas, Frame, Menu, BOTH, filedialog
+from tkinter import Tk, Canvas, Frame, Menu, BOTH, filedialog, messagebox
 from rectangle import Rectangle
 from circle import Circle
 from star import Star
 from shape_parser import Parser
+from shape_exporter import ShapeExporter
 
 
 class ShapeDrawing(Frame):
@@ -47,10 +48,13 @@ class ShapeDrawing(Frame):
         self.shapes = []
 
     def onExport(self):
-        print("To do.")
+        shape_exporter = ShapeExporter(self.shapes, "export.zip")
+        shape_exporter.write()
+        messagebox.showinfo("Information", "Your file has been exported as export.zip in the root directory. Please open explorer.")
 
     def onExit(self):
         self.quit()
+
 
 
 def main():

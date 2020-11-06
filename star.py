@@ -2,6 +2,7 @@ from shape import Shape
 import math
 from tkinter import Canvas
 from xml_builder import XmlElement
+from svg_builder import SvgBuilder
 from graphics import Graphics
 
 class StarGraphics(Graphics):
@@ -32,7 +33,9 @@ class StarGraphics(Graphics):
         canvas.create_line(*pts)
 
     def to_xml(self) -> XmlElement:
-        pass
+        svg_builder = SvgBuilder()
+         #TODO: Implement star shape!
+        return svg_builder.root
 
 class Star(Shape):
 
@@ -51,3 +54,6 @@ class Star(Shape):
 
     def to_xml(self) -> XmlElement:
         return self.graphics.to_xml()
+    
+    def name(self) -> str:
+        return "star"

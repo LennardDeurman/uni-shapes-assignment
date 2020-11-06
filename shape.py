@@ -19,3 +19,7 @@ class Shape(ABC):
     @abstractmethod
     def create_graphics(self) -> Graphics:
         pass
+    
+    @abstractmethod
+    def name(self) -> str:
+        pass
