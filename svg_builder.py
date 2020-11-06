@@ -8,4 +8,3 @@ class SvgBuilder:
         self.root.props.add_field(XmlElementProperty("xmlns", "http://www.w3.org/2000/svg"))
         self.root.props.add_field(XmlElementProperty("version", "1.1"))
 
-    
